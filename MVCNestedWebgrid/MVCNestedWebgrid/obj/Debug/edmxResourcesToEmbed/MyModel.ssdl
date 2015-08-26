@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MyDatabaseModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="MyDatabaseModelStoreContainer">
+    <EntitySet Name="OrderDetails" EntityType="MyDatabaseModel.Store.OrderDetails" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="OrderMaster" EntityType="MyDatabaseModel.Store.OrderMaster" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="OrderDetails">
+    <Key>
+      <PropertyRef Name="OrderDetailsID" />
+    </Key>
+    <Property Name="OrderDetailsID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="OrderID" Type="int" Nullable="false" />
+    <Property Name="Product" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="Rate" Type="numeric" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="Amount" Type="numeric" Nullable="false" Precision="10" Scale="2" />
+  </EntityType>
+  <EntityType Name="OrderMaster">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="OrderDate" Type="datetime" Nullable="false" />
+    <Property Name="OrderAmount" Type="numeric" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="CustomerName" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="CustomerAddress" Type="varchar" MaxLength="200" />
+  </EntityType>
+</Schema>
